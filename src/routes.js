@@ -24,7 +24,7 @@ module.exports = (application) => {
 
     application.route('/testando')
         .get(auth.authVerify, (req, resp) => {
-            resp.send('eae');
+            resp.send(req.session.userData);
         })
 
 }

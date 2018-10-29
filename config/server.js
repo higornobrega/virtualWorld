@@ -1,9 +1,9 @@
+require('dotenv').load();
 const express = require ('express');
 const consign = require('consign');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const expressSession = require('express-session');
-const authSecret = require('../.env');
 
 const app = express();
 app.set('view engine' , 'pug');
@@ -21,7 +21,7 @@ app.use(bodyParser.json({
 app.use(express.static('./src/public/'));
 app.use(helmet())
 app.use(expressSession({
-    secret : authSecret.authSecret,
+    secret : process.env.authSecret,
     saveUninitialized : false,
     resave : false
 }));
