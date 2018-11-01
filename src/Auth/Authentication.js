@@ -18,17 +18,19 @@ class Auth {
 
     async signToken(user) {
         const {
-            nome,
-            password
+            name,
+            descricao,
+            imgSrc
         } = user;
         try {
             const token = await jwt.sign({
-                nome,
-                password
+                name,
+                descricao,
+                imgSrc
             }, process.env.authSecret);
             return token;
         } catch (error) {
-            resp.send(error);
+            console.log(error);
         }
 
     }

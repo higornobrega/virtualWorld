@@ -17,7 +17,6 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json({
     limit : '50mb'
 }));
-
 app.use(express.static('./src/public/'));
 app.use(helmet())
 app.use(expressSession({

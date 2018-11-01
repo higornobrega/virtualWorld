@@ -10,16 +10,23 @@ module.exports.save = async (application, req, resp) => {
     const customerModel = new application.src.models.ClientDAO(connection);
 
     let {
-        nome,
-        password
+        name,
+        password,
+        descricao
     } = req.body;
+
+    const imgSRC = req.uploadName;
+
+    console.log(imgSRC);
 
     password = md5(password);
 
     try {
         customerModel.insertUser({
-            nome, 
-            password
+            name, 
+            password,
+            descricao,
+            imgSRC
         }).then((result) => {
             resp.redirect('/');
         }).catch((err) => {

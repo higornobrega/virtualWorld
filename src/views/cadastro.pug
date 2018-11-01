@@ -6,7 +6,9 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         title Document
     body
-        form(action="/cadastro", method="post")
-            input(type="text", name="nome" id="nome")
+        form(action="/cadastro", method="post" enctype="multipart/form-data")
+            input(type="text", name="name" id="aome")
             input(type="password", name="password" id="password")
+            input(type="text", name="descricao" id="descricao")
+            input(type="file", name="file" id="file")
             button(type="submit") Enviar

@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        title Document
-    body
-        form(action="/authentication" , method="POST")
-            input(type="text", name="nome" , id="nome")
-            input(type="password", name="password" id="password")
-            button(type="submit") Enviar
-        if(errors.length > 0)
-            ul
-                each error in errors
-                    li #{error.msg}
-        
-                    
-                
+extends ./template.pug
+
+block headerCSS
+    link(rel="stylesheet", href="css/index/style.css")
+
+block content
+    h1.section__jogadores__title Jogadores disponíveis
+    section.section__jogadores
+        if(jogadores)
+            each jogador in jogadores
+                div.section__jogadores__jogador
+                    img(src= `/${jogador.imgSRC}`, alt="Imagem Jogador")
+                    div.qualquer
+                        h3 #{jogador.name}
+                        p  #{jogador.descricao}

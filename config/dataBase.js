@@ -5,7 +5,7 @@ const connection = () => {
         host: 'localhost',
         user: 'root',
         password: 'web1234',
-        database: 'Myapp'
+        database: 'Test'
     });
 }
 
